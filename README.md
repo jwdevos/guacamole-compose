@@ -6,7 +6,7 @@
 - Make sure you're in the guacamole directory, and no interfering containers or volumes are present (verify by running `make status`)
 - Run `make bootstrap`
 - Run `make up`
-- Connect to Guacamole on the IP of the Docker host: `http://X.X.X.X:8080/guacamole`
+- Connect to Guacamole on the IP of the Docker host: `http://X.X.X.X:8080/guacamole`. The default credentials are `guacadmin:guacadmin`
 - If you need a clean environment because something got screwed, run `make prune`. **Be careful:** this will remove all data that might have been added to your Guamole environment
 - To bring down the environment without destroying data, run `make down`
 - View the status by running `make status`
