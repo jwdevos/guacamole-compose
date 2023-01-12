@@ -1,0 +1,38 @@
+version: '3'
+services:
+  guacd:
+    container_name: guacd
+    hostname: guacd
+    image: guacamole/guacd
+    restart: unless-stopped
+    env_file:
+      - ./.env
+
+  guacamole-db:
+    container_name: guacamole-db
+    hostname: guacamole-db
+    image: mariadb/server
+    restart: unless-stopped
+    volumes:
+      - "./initdb.sql:/initdb.sql"
+      - "guacdb_data:/var/lib/mysql"
+    env_file:
+      - ./.env
+
+  guacamole:
+    container_name: guacamole
+    hostname: guacamole
+    image: guacamole/guacamole
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+#    environment:
+#      TOTP_ENABLED: true
+    depends_on:
+      - guacamole-db
+      - guacd
+    env_file:
+      - ./.env
+
+volumes:
+  guacdb_data:
