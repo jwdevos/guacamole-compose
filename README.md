@@ -1,3 +1,5 @@
+**-- this repo will be archived and moved to https://codeberg.org/jwdevos/guacamole-compose --**
+
 # guacamole-compose
 #### Docker Compose Project For Apache Guacamole
 
